@@ -60,6 +60,27 @@ public class CandyGenerator : MonoBehaviour
             SceneManager.LoadScene("GameOver");
             return;
         }
+        int points = player_script.player_points;
+        int live_changer = candy_script.lifeChanges;
+        points = points + live_changer;
+        print(points);
+        
+        player_script.player_points = points;
+        Destroy(candy_script.gameObject);
+    }
+    /*
+    public void ManageCandy_Copia(CandyController candy_script, PlayerMovement player_script = null)
+    {
+        if (player_script == null)
+        {
+            Destroy(candy_script.gameObject);
+            return;
+        }
+        if (candy_script.frame == 3)
+        {
+            SceneManager.LoadScene("GameOver");
+            return;
+        }
         int lives = player_script.player_lives;
         int live_changer = candy_script.lifeChanges;
         lives += live_changer;
@@ -71,6 +92,7 @@ public class CandyGenerator : MonoBehaviour
         player_script.player_lives = lives;
         Destroy(candy_script.gameObject);
     }
+    */
 
 
 }
